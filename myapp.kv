@@ -1,0 +1,16 @@
+<MainInterface>:
+    orientation: 'horizontal'
+
+    BoxLayout:
+
+
+        size_hint_x: 0.1  # Set the width of the first BoxLayout to half of the parent's width
+        canvas:
+            Color:
+                rgba: 1, 0, 0, 1  # Red color
+            Rectangle:
+                pos: self.pos
+                size: self.size
+        Label:
+            text: root.my_globals
+
