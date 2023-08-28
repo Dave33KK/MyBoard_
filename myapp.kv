@@ -1,16 +1,90 @@
 <MainInterface>:
+
     orientation: 'horizontal'
 
     BoxLayout:
-
-
-        size_hint_x: 0.1  # Set the width of the first BoxLayout to half of the parent's width
-        canvas:
+        orientation: 'vertical'
+        size_hint_x: 0.2
+        id: tool_box
+        canvas.before:
             Color:
-                rgba: 1, 0, 0, 1  # Red color
+                rgba: root.global_red
             Rectangle:
                 pos: self.pos
                 size: self.size
-        Label:
-            text: root.my_globals
 
+        Button:
+            text: "+ create new task"
+            size_hint: (None, None)
+            size: root.width * 0.2, 100
+            pos_hint: {'center_x': 0.5} #text position
+            on_release: root.button_pressed()  # Call the app's method when the button is released
+
+        # Spacer to push the button to the top, later refactor by adding new buttons and functions
+        BoxLayout:
+            size_hint: (1, None)
+            height: self.parent.height - 100
+
+
+    BoxLayout:
+        orientation: 'horizontal'
+        size_hint_x: 0.8
+        id: workflow_pillars
+        canvas:
+            Color:
+                rgba: root.global_orange
+            Rectangle:
+                pos: self.pos
+                size: self.size
+
+
+        BoxLayout:
+            orientation: 'vertical'
+            id: "Pillar full"
+            BoxLayout:
+                size_hint_y: 0.2
+                Label:
+                    text: 'IN PROGRESS'
+            ScrollView:
+
+
+                BoxLayout:
+                    orientation: 'vertical'
+                    spacing: 1
+                    size_hint_y: None
+                    height: self.minimum_height
+
+                    # Add buttons to the scrollable content
+                    Button:
+                        text: 'Button 1'
+                        height: '300dp'
+                        size_hint: (None, None)
+                        size: root.width * 0.2, 200
+
+                    Button:
+                        text: 'Button 1'
+                        height: '300dp'
+                        size_hint_y: None
+
+                    Button:
+                        text: 'Button 1'
+                        height: '300dp'
+                        size_hint_y: None
+
+                    Button:
+                        text: 'Button 1'
+                        height: '300dp'
+                        size_hint_y: None
+
+
+        BoxLayout:
+            Label:
+                text: 'tool_box'
+
+        BoxLayout:
+            Label:
+                text: 'tool_box'
+
+        BoxLayout:
+            Label:
+                text: 'tool_box'
